@@ -1,0 +1,39 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Results</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h2>Extracted Data</h2>-->
+<!--<ul>-->
+<!--    <li th:each="result : ${results}">-->
+<!--        <strong>Question:</strong> <span th:text="${result['question']}"></span><br>-->
+<!--        <strong>Answer:</strong> <span th:text="${result['answer']}"></span>-->
+<!--    </li>-->
+<!--</ul>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        var rawData = /*[[${results}]]*/ [];
+        var jsonString = JSON.stringify(rawData, null, 2); // Định dạng JSON với indentation
+        /*]]>*/
+    </script>
+</head>
+<body>
+<h2>Extracted Data</h2>
+<pre id="jsonOutput"></pre>
+
+<script>
+    document.getElementById('jsonOutput').textContent = jsonString;
+</script>
+</body>
+</html>
